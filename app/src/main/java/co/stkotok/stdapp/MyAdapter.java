@@ -1,4 +1,4 @@
-package co.neatapps.android.swipetodelete;
+package co.stkotok.stdapp;
 
 
 import android.content.Context;
@@ -12,9 +12,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import co.neatapps.std.STDAdapterHelper;
-import co.neatapps.std.STDAwaiting;
-import co.neatapps.std.STDInterface;
+import co.stkotok.swipetodelete.STDAdapterHelper;
+import co.stkotok.swipetodelete.STDAwaiting;
+import co.stkotok.swipetodelete.STDInterface;
 
 
 class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder> implements STDInterface {

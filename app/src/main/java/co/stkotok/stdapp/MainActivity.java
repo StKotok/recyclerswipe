@@ -1,4 +1,4 @@
-package co.neatapps.android.swipetodelete;
+package co.stkotok.stdapp;
 
 
 import android.os.Bundle;
@@ -12,8 +12,8 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 
 import java.util.ArrayList;
 
-import co.neatapps.std.STDItemCallback;
-import co.neatapps.std.STDItemDecoration;
+import co.stkotok.swipetodelete.STDItemCallback;
+import co.stkotok.swipetodelete.STDItemDecoration;
 
 
 public class MainActivity extends AppCompatActivity {

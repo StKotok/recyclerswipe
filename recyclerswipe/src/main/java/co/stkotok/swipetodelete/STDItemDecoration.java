@@ -1,5 +1,5 @@
 /*
-   Copyright 2018 Neatapps.
+   Copyright 2018 Stepan Kotok.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  */
 
 
-package co.neatapps.std;
+package co.stkotok.swipetodelete;
 
 
 import android.graphics.Canvas;

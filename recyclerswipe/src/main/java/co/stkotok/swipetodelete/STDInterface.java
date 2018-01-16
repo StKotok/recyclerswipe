@@ -1,5 +1,5 @@
 /*
-   Copyright 2018 Neatapps.
+   Copyright 2018 Stepan Kotok.
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -15,13 +15,18 @@
  */
 
 
-package co.neatapps.std;
+package co.stkotok.swipetodelete;
 
 
-public interface STDAwaiting {
+import java.util.List;
 
-    void await(int position);
 
-    boolean isAwaiting(int position);
+public interface STDInterface<T> {
+
+    void removingFromItems(int position);
+
+    List<T> getItems();
+
+    STDAwaiting getSTDAdapterHelper();
 
 }
