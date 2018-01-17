@@ -1,9 +1,25 @@
+
 # recyclerswipe
+[ ![Download](https://api.bintray.com/packages/stkotok/Android-SwipeToDelete/recyclerswipe/images/download.svg) ](https://bintray.com/stkotok/Android-SwipeToDelete/recyclerswipe/_latestVersion) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
+Swipe to delete functionality for your Android RecylerView.
 
-Swipe to delete functionality for RecylerView.
+<h3>Add to project</h3>
 
-[ ![Download](https://api.bintray.com/packages/stkotok/Android-SwipeToDelete/recyclerswipe/images/download.svg) ](https://bintray.com/stkotok/Android-SwipeToDelete/recyclerswipe/_latestVersion)
+**Gradle**
+```groovy
+compile 'co.stkotok:recyclerswipe:0.7.2'
+```
+
+**Maven**
+```xml
+<dependency>
+  <groupId>co.stkotok</groupId>
+  <artifactId>recyclerswipe</artifactId>
+  <version>0.7.2</version>
+  <type>pom</type>
+</dependency>
+```
 
 <h3>Copyright</h3>
 
