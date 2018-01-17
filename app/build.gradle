@@ -23,7 +23,7 @@ android {
 }
 
 dependencies {
-    compile project(path: ':recyclerswipe')
+    implementation project(path: ':recyclerswipe')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
     implementation 'com.android.support:recyclerview-v7:26.1.0'
