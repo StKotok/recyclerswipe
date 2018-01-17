@@ -115,8 +115,8 @@ public class STDAdapterHelper<A extends RecyclerView.Adapter & STDInterface> imp
      * - view, that represents the undo button.
      */
     public abstract static class VHolder extends RecyclerView.ViewHolder {
-        private View mainLayout;
-        private View undoButton;
+        public View mainLayout;
+        public View undoButton;
 
         /**
          * @param itemView   Standard Android itemView param.
