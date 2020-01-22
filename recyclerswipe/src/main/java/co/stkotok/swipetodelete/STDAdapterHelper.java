@@ -60,18 +60,22 @@ public class STDAdapterHelper<A extends RecyclerView.Adapter & STDInterface> imp
             holder.undoButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // cancel the awaiting task
-                    Runnable awaitingRemovalRunnable = awaitingRunnables.get(item);
-                    awaitingRunnables.remove(item);
-                    if (awaitingRemovalRunnable != null) {
-                        handler.removeCallbacks(awaitingRemovalRunnable);
-                    }
-                    itemsAwaitingRemoval.remove(item);
-                    // this will rebind the row in "normal" state
-                    adapter.notifyItemChanged(adapter.getItems().indexOf(item));
+                    cancelTaskAndRemoveFromItems(item);
                 }
             });
         }
+    }
+
+    private void cancelTaskAndRemoveFromItems(Object item) {
+        // cancel the awaiting task
+        Runnable awaitingRemovalRunnable = awaitingRunnables.get(item);
+        awaitingRunnables.remove(item);
+        if (awaitingRemovalRunnable != null) {
+            handler.removeCallbacks(awaitingRemovalRunnable);
+        }
+        itemsAwaitingRemoval.remove(item);
+        // this will rebind the row in "normal" state
+        adapter.notifyItemChanged(adapter.getItems().indexOf(item));
     }
 
     public void await(int position) {
@@ -106,6 +110,13 @@ public class STDAdapterHelper<A extends RecyclerView.Adapter & STDInterface> imp
             adapter.removingFromItems(position);
             adapter.getItems().remove(position);
             adapter.notifyItemRemoved(position);
+        }
+    }
+
+    public void cancelAllItemsAwaitingRemoval() {
+        for (int i = itemsAwaitingRemoval.size() - 1; i >= 0 ; i--) {
+            Object item = itemsAwaitingRemoval.get(i);
+            cancelTaskAndRemoveFromItems(item);
         }
     }
 
