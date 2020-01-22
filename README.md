@@ -8,7 +8,7 @@ Swipe to delete functionality for your Android RecylerView.
 
 **Gradle**
 ```groovy
-compile 'co.stkotok:recyclerswipe:0.7.4'
+compile 'co.stkotok:recyclerswipe:0.7.5'
 ```
 
 **Maven**
@@ -16,7 +16,7 @@ compile 'co.stkotok:recyclerswipe:0.7.4'
 <dependency>
   <groupId>co.stkotok</groupId>
   <artifactId>recyclerswipe</artifactId>
-  <version>0.7.4</version>
+  <version>0.7.5</version>
   <type>pom</type>
 </dependency>
 ```
