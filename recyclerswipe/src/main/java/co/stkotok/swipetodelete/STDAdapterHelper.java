@@ -79,34 +79,33 @@ public class STDAdapterHelper<A extends RecyclerView.Adapter & STDInterface> imp
     }
 
     public void await(int position) {
-        final Object device = adapter.getItems().get(position);
-        if (!itemsAwaitingRemoval.contains(device)) {
-            itemsAwaitingRemoval.add(device);
+        final Object item = adapter.getItems().get(position);
+        if (!itemsAwaitingRemoval.contains(item)) {
+            itemsAwaitingRemoval.add(item);
             // this will redraw row in "undo" state
             adapter.notifyItemChanged(position);
             // runnable to remove the item
             Runnable pendingRemovalRunnable = new Runnable() {
                 @Override
                 public void run() {
-                    remove(adapter.getItems().indexOf(device));
+                    remove(item);
                 }
             };
             handler.postDelayed(pendingRemovalRunnable, timeoutToDelete);
-            awaitingRunnables.put(device, pendingRemovalRunnable);
+            awaitingRunnables.put(item, pendingRemovalRunnable);
         }
     }
 
     public boolean isAwaiting(int position) {
-        Object device = adapter.getItems().get(position);
-        return itemsAwaitingRemoval.contains(device);
+        Object item = adapter.getItems().get(position);
+        return itemsAwaitingRemoval.contains(item);
     }
 
-    private void remove(int position) {
-        Object device = adapter.getItems().get(position);
-        if (itemsAwaitingRemoval.contains(device)) {
-            itemsAwaitingRemoval.remove(device);
-        }
-        if (adapter.getItems().contains(device)) {
+    private void remove(Object item) {
+        itemsAwaitingRemoval.remove(item);
+
+        if (adapter.getItems().contains(item)) {
+            int position = adapter.getItems().indexOf(item);
             adapter.removingFromItems(position);
             adapter.getItems().remove(position);
             adapter.notifyItemRemoved(position);
@@ -114,7 +113,7 @@ public class STDAdapterHelper<A extends RecyclerView.Adapter & STDInterface> imp
     }
 
     public void cancelAllItemsAwaitingRemoval() {
-        for (int i = itemsAwaitingRemoval.size() - 1; i >= 0 ; i--) {
+        for (int i = itemsAwaitingRemoval.size() - 1; i >= 0; i--) {
             Object item = itemsAwaitingRemoval.get(i);
             cancelTaskAndRemoveFromItems(item);
         }
