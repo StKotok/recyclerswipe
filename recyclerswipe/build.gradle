@@ -43,7 +43,7 @@ ext {
     siteUrl = 'https://github.com/StKotok/recyclerswipe'
     gitUrl = 'https://github.com/StKotok/recyclerswipe.git'
 
-    libraryVersion = '0.7.5'
+    libraryVersion = '0.7.6'
 
     developerId = 'stkotok'
     developerName = 'Stepan Kotok'
