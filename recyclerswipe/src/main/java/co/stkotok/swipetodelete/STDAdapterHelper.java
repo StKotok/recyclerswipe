@@ -75,7 +75,9 @@ public class STDAdapterHelper<A extends RecyclerView.Adapter & STDInterface> imp
         }
         itemsAwaitingRemoval.remove(item);
         // this will rebind the row in "normal" state
-        adapter.notifyItemChanged(adapter.getItems().indexOf(item));
+        int itemPosition = adapter.getItems().indexOf(item);
+        if (itemPosition != -1)
+            adapter.notifyItemChanged(itemPosition);
     }
 
     public void await(int position) {
@@ -88,7 +90,11 @@ public class STDAdapterHelper<A extends RecyclerView.Adapter & STDInterface> imp
             Runnable pendingRemovalRunnable = new Runnable() {
                 @Override
                 public void run() {
-                    remove(adapter.getItems().indexOf(device));
+                    int devicePosition = adapter.getItems().indexOf(device);
+                    if (devicePosition != -1)
+                        remove(devicePosition);
+                    else
+                        cancelTaskAndRemoveFromItems(device);
                 }
             };
             handler.postDelayed(pendingRemovalRunnable, timeoutToDelete);
